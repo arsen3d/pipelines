@@ -65,10 +65,11 @@ class Pipeline:
             response.raise_for_status()
             json_response = response.json()
             print("json", json_response)
-            decoded_output = json_response.get("stdout", "")
-            decoded_output = decoded_output.encode('ascii')
-            decoded_output = base64.b64decode(decoded_output).decode('ascii')
-            return json_response
+            # decoded_output = json_response.get("stdout", "")
+            # decoded_output = decoded_output.encode('ascii')
+            # decoded_output = base64.b64decode(decoded_output).decode('ascii')
+            decoded_output = base64.b64decode(json_response.get("stdout", "")).decode('ascii')
+            return decoded_output
             # r = requests.post(
             #     url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
             #     json={**body, "model": MODEL},
