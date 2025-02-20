@@ -42,7 +42,7 @@ class Pipeline:
 
         try:
             print("test3")
-            return "test3"
+            return "test3\n"
             # return {"test": "json"}
             sk = os.getenv("SK")
             if not sk:
