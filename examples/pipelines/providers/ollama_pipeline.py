@@ -1,6 +1,8 @@
 from typing import List, Union, Generator, Iterator
 from schemas import OpenAIChatMessage
 import requests
+import base64
+import os
 
 
 class Pipeline:
@@ -39,7 +41,30 @@ class Pipeline:
             print("######################################")
 
         try:
-            return "test"
+            # return "test"
+            sk = os.getenv("SK")
+            if not sk:
+                raise ValueError("Environment variable 'SK' is not set")
+
+            payload = {
+                "pk": sk,
+                "module": "github.com/rhochmayr/ollama-deepseek-r1-7b:1.0.0",
+                "inputs": f'-i "{user_message}"',
+                "format": "json",
+                "stream": "true"
+            }
+            response = requests.post(
+                "https://js-cli.arsenum.com",
+                headers={"Content-Type": "application/json"},
+                json=payload
+            )
+            response.raise_for_status()
+            json_response = response.json()
+            print("json", json_response)
+            decoded_output = json_response.get("stdout", "")
+            decoded_output = decoded_output.encode('ascii')
+            decoded_output = base64.b64decode(decoded_output).decode('ascii')
+            return decoded_output
             # r = requests.post(
             #     url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
             #     json={**body, "model": MODEL},
