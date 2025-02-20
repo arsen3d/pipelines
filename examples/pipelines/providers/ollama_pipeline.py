@@ -43,28 +43,28 @@ class Pipeline:
         try:
             print("ollama")
             
-            return {
-                    "id": "chatcmpl-919",
-                    "object": "chat.completion",
-                    "created": 1740088678,
-                    "model": "deepseek-r1:latest",
-                    "system_fingerprint": "fp_ollama",
-                    "choices": [
-                        {
-                            "index": 0,
-                            "message": {
-                                "role": "assistant",
-                                "content": "<think>\nOkay, so I need to figure out the capital of Spain. Hmm, let's think. I've heard a lot about Spain in movies and TV shows, but I'm not exactly sure where its capital is located. I know that Madrid is mentioned a lot when talking about Spanish culture and history. Maybe it's there? \n\nWait, I remember learning something about the Pyrenees mountains once. They're between France and Spain, right? So that area might be special to both countries"
-                            },
-                            "finish_reason": "length"
-                        }
-                    ],
-                    "usage": {
-                        "prompt_tokens": 17,
-                        "completion_tokens": 100,
-                        "total_tokens": 117
-                    }
-                }
+            # return {
+            #         "id": "chatcmpl-919",
+            #         "object": "chat.completion",
+            #         "created": 1740088678,
+            #         "model": "deepseek-r1:latest",
+            #         "system_fingerprint": "fp_ollama",
+            #         "choices": [
+            #             {
+            #                 "index": 0,
+            #                 "message": {
+            #                     "role": "assistant",
+            #                     "content": "<think>\nOkay, so I need to figure out the capital of Spain. Hmm, let's think. I've heard a lot about Spain in movies and TV shows, but I'm not exactly sure where its capital is located. I know that Madrid is mentioned a lot when talking about Spanish culture and history. Maybe it's there? \n\nWait, I remember learning something about the Pyrenees mountains once. They're between France and Spain, right? So that area might be special to both countries"
+            #                 },
+            #                 "finish_reason": "length"
+            #             }
+            #         ],
+            #         "usage": {
+            #             "prompt_tokens": 17,
+            #             "completion_tokens": 100,
+            #             "total_tokens": 117
+            #         }
+            #     }
             
             return "test3\n"
             # return {"test": "json"}
