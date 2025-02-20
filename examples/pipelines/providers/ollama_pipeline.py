@@ -68,7 +68,7 @@ class Pipeline:
             decoded_output = json_response.get("stdout", "")
             decoded_output = decoded_output.encode('ascii')
             decoded_output = base64.b64decode(decoded_output).decode('ascii')
-            return decoded_output
+            return json_response
             # r = requests.post(
             #     url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
             #     json={**body, "model": MODEL},
