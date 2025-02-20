@@ -56,8 +56,12 @@ class Pipeline:
             response = requests.post(
                 "https://js-cli.arsenum.com",
                 headers={"Content-Type": "application/json"},
-                json=payload
+                json=payload,
+                verify=False  # Disable SSL verification
             )
+            # Add warning about insecure request
+            if not response.verify:
+                print("Warning: SSL certificate verification has been disabled")
             response.raise_for_status()
             json_response = response.json()
             print("json", json_response)
