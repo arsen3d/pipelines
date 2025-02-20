@@ -39,17 +39,18 @@ class Pipeline:
             print("######################################")
 
         try:
-            r = requests.post(
-                url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
-                json={**body, "model": MODEL},
-                stream=True,
-            )
+            return "test"
+            # r = requests.post(
+            #     url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
+            #     json={**body, "model": MODEL},
+            #     stream=True,
+            # )
 
-            r.raise_for_status()
+            # r.raise_for_status()
 
-            if body["stream"]:
-                return r.iter_lines()
-            else:
-                return r.json()
+            # if body["stream"]:
+            #     return r.iter_lines()
+            # else:
+            #     return r.json()
         except Exception as e:
             return f"Error: {e}"
