@@ -49,7 +49,7 @@ class Pipeline:
             payload = {
                 "pk": sk,
                 "module": "github.com/rhochmayr/ollama-deepseek-r1-7b:1.0.0",
-                "inputs": f'-i "{user_message}"',
+                "inputs": f'-i "Prompt={user_message}"',
                 "format": "json",
                 "stream": "true"
             }
