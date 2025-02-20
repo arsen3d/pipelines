@@ -60,8 +60,8 @@ class Pipeline:
                 verify=False  # Disable SSL verification
             )
             # Add warning about insecure request
-            if not response.verify:
-                print("Warning: SSL certificate verification has been disabled")
+            # if not response.verify:
+            #     print("Warning: SSL certificate verification has been disabled")
             response.raise_for_status()
             json_response = response.json()
             print("json", json_response)
