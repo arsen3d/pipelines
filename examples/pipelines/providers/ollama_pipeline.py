@@ -41,7 +41,8 @@ class Pipeline:
             print("######################################")
 
         try:
-            # return "test"
+            print("test")
+            return "test"
             sk = os.getenv("SK")
             if not sk:
                 raise ValueError("Environment variable 'SK' is not set")
