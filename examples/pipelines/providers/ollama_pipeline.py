@@ -69,6 +69,7 @@ class Pipeline:
             # decoded_output = decoded_output.encode('ascii')
             # decoded_output = base64.b64decode(decoded_output).decode('ascii')
             decoded_output = base64.b64decode(json_response.get("stdout", "")).decode('ascii')
+            print("decoded_output", decoded_output)
             return decoded_output
             # r = requests.post(
             #     url=f"{OLLAMA_BASE_URL}/v1/chat/completions",
