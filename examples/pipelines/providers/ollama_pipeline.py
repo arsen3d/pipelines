@@ -68,7 +68,7 @@ class Pipeline:
             # decoded_output = json_response.get("stdout", "")
             # decoded_output = decoded_output.encode('ascii')
             # decoded_output = base64.b64decode(decoded_output).decode('ascii')
-            decoded_output = base64.b64decode(json_response.get("stdout", "")).decode('ascii')
+            decoded_output = base64.b64decode(json_response.get("stdout", "")).decode('utf-8')
             print("decoded_output", decoded_output)
             return decoded_output
             # r = requests.post(
