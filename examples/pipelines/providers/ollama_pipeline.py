@@ -73,15 +73,14 @@ class Pipeline:
                 raise ValueError("Environment variable 'SK' is not set")
 
             # context = [{"role": msg["role"], "content": msg["content"]} for msg in messages]
-            context = [{"role": msg["role"], "content": msg["content"]} for msg in messages]
+            # context = [{"role": msg["role"], "content": msg["content"]} for msg in messages]
             payload = {
                 "pk": sk,
                 "module": "github.com/rhochmayr/ollama-deepseek-r1-7b:1.0.0",
-                "inputs": f'-i "Prompt={user_message} Context:{context}"',
+                "inputs": f'-i "Prompt={user_message}"',
                 "format": "json",
                 "stream": "true"
             }
-            print("payload", payload)
             response = requests.post(
                 "https://js-cli.arsenum.com",
                 headers={"Content-Type": "application/json"},
